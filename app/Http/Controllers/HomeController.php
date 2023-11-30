@@ -20,7 +20,7 @@ class HomeController extends Controller
             if($usertype == 'user')
             {
 
-                return view('dashboard');
+                return view('home.homepage');
 
             }
             else if($usertype == 'admin')
@@ -37,6 +37,13 @@ class HomeController extends Controller
             }
 
         }
+
+    }
+
+    public function homepage()
+    {
+
+        return view('home.homepage');
 
     }
 
