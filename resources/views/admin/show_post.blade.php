@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     @include('admin.css')
 
@@ -113,7 +115,7 @@
                     </td>
                     <td>
 
-                        <a href="{{url('delete_post', $post->id)}}" class="btn btn-danger" onclick="return confirm('Are You Sure to Delete This Post?')">Delete</a>
+                        <a href="{{url('delete_post', $post->id)}}" class="btn btn-danger" onclick="confirmation(event)">Delete</a>
 
                     </td>
 
@@ -127,6 +129,47 @@
         </div>
 
         @include('admin.footer')
+
+        <script type="text/javascript">
+
+            function confirmation(ev)
+            {
+
+                ev.preventDefault();
+
+                var urlToRedirect=ev.currentTarget.getAttribute('href');
+
+                console.log(urlToRedirect);
+
+                swal({
+
+                    title : "Are You Sure to Delete This Post?",
+
+                    text : "You won't be able to revert this delete!",
+
+                    icon : "warning",
+
+                    buttons : true,
+
+                    dangerMode : true,
+
+                })
+
+                .then((willCancel)=>
+                {
+
+                    if(willCancel)
+                    {
+
+                        window.location.href = urlToRedirect;
+
+                    }
+
+                });
+
+            }
+
+        </script>
 
   </body>
 </html>
