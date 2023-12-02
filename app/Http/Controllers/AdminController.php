@@ -59,4 +59,15 @@ class AdminController extends Controller
 
     }
 
+    public function delete_post($id)
+    {
+
+        $post = post::find($id);
+
+        $post->delete();
+
+        return redirect()->back()->with('message', 'Post Deleted Successfully');
+
+    }
+
 }
