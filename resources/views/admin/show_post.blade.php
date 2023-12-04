@@ -96,6 +96,7 @@
                     <th>User Type</th>
                     <th>Image</th>
                     <th>Delete</th>
+                    <th>Edit</th>
 
                 </tr>
 
@@ -116,6 +117,11 @@
                     <td>
 
                         <a href="{{url('delete_post', $post->id)}}" class="btn btn-danger" onclick="confirmation(event)">Delete</a>
+
+                    </td>
+                    <td>
+
+                        <a href="{{url('edit_page', $post->id)}}" class="btn btn-warning">Edit</a>
 
                     </td>
 
