@@ -8,14 +8,14 @@
             @foreach ($post as $post)
                
 
-             <div class="col-md-4">
-                <div><img src="/postimage/{{$post->image}}" class="services_img"></div>
-
-                <h4>{{$post->title}}</h4>
+             <div style="text-align: center;" class="col-md-4">
+                <div><img style="margin-bottom: 20px; height: 200px; width: 300px; margin: auto;" src="/postimage/{{$post->image}}"></div>
+               
+                <h4><b>{{$post->title}}</b></h4>
 
                 <p>Post By <b>{{$post->name}}</b></p>
 
-                <div class="btn_main"><a href="#">Read More</a></div>
+                <div class="btn_main"><a href="{{url('post_details', $post->id)}}">Read More</a></div>
              </div>
 
             @endforeach
