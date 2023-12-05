@@ -46,23 +46,13 @@
 
    </head>
    <body>
+
+        @include('sweetalert::alert')
+
       <!-- header section start -->
       <div class="header_section">
          
         @include('home.header')
-
-
-        @if (session()->has('message'))
-
-        <div class="alert alert-success">
-
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-
-            {{session()->get('message')}}
-
-        </div>
-            
-        @endif
 
         <div class="maindiv_deg">
 
