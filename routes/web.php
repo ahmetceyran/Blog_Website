@@ -25,6 +25,8 @@ Route::get('/post_details/{id}', [HomeController::class, 'post_details']);
 
 Route::get('/create_post', [HomeController::class, 'create_post'])->middleware('auth');
 
+Route::get('/my_posts', [HomeController::class, 'my_posts'])->middleware('auth');
+
 Route::post('/user_post', [HomeController::class, 'user_post'])->middleware('auth');
 
 Route::get('/post_page', [AdminController::class, 'post_page']);
