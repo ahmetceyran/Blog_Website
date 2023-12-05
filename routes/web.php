@@ -23,6 +23,10 @@ Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name(
 
 Route::get('/post_details/{id}', [HomeController::class, 'post_details']);
 
+Route::get('/create_post', [HomeController::class, 'create_post'])->middleware('auth');
+
+Route::post('/user_post', [HomeController::class, 'user_post'])->middleware('auth');
+
 Route::get('/post_page', [AdminController::class, 'post_page']);
 
 Route::post('/add_post', [AdminController::class, 'add_post']);
