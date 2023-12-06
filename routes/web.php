@@ -47,6 +47,10 @@ Route::get('/edit_page/{id}', [AdminController::class, 'edit_page']);
 
 Route::post('/update_post/{id}', [AdminController::class, 'update_post']);
 
+Route::get('/accept_post/{id}', [AdminController::class, 'accept_post']);
+
+Route::get('/reject_post/{id}', [AdminController::class, 'reject_post']);
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

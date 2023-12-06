@@ -23,7 +23,7 @@
         {
 
             padding: 10px; 
-            font-size: 20px; 
+            font-size: 15px; 
             color: white; 
             border: 1px solid; 
             width: 125px;
@@ -36,7 +36,7 @@
             border: 1px solid white;
             width: %80;
             text-align: center;
-            margin-left: 70px;
+            margin-left: 10px;
 
         }
 
@@ -73,7 +73,7 @@
 
             @if (session()->has('message'))
 
-            <div class="alert alert-danger">
+            <div class="alert alert-warning">
 
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
 
@@ -97,6 +97,8 @@
                     <th>Image</th>
                     <th>Delete</th>
                     <th>Edit</th>
+                    <th>Status Accept</th>
+                    <th>Status Reject</th>
 
                 </tr>
 
@@ -122,6 +124,16 @@
                     <td>
 
                         <a href="{{url('edit_page', $post->id)}}" class="btn btn-warning">Edit</a>
+
+                    </td>
+                    <td>
+
+                        <a onclick="return confirm('Are You Sure To Accept This Post?')" href="{{url('accept_post', $post->id)}}" class="btn btn-success">Accept</a>
+
+                    </td>
+                    <td>
+
+                        <a onclick="return confirm('Are You Sure To Reject This Post?')" href="{{url('reject_post', $post->id)}}" class="btn btn-primary">Reject</a>
 
                     </td>
 
