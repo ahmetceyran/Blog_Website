@@ -31,6 +31,10 @@ Route::post('/user_post', [HomeController::class, 'user_post'])->middleware('aut
 
 Route::get('/my_post_del/{id}', [HomeController::class, 'my_post_del'])->middleware('auth');
 
+Route::get('/post_update_page/{id}', [HomeController::class, 'post_update_page'])->middleware('auth');
+
+Route::post('/update_post_data/{id}', [HomeController::class, 'update_post_data'])->middleware('auth');
+
 Route::get('/post_page', [AdminController::class, 'post_page']);
 
 Route::post('/add_post', [AdminController::class, 'add_post']);

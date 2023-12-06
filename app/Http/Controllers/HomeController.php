@@ -128,4 +128,39 @@ class HomeController extends Controller
 
     }
 
+    public function post_update_page($id)
+    {
+        $post = post::find($id);
+
+        return view('home.post_update', compact('post'));
+
+    }
+
+    public function update_post_data(Request $request, $id)
+    {
+
+        $data = post::find($id);
+
+        $data->title = $request->title;
+        $data->description = $request->description;
+
+        $image = $request->image;
+
+        if($image)
+        {
+
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+
+            $request->image->move('postimage', $imagename);
+
+            $data->image = $imagename;
+
+        }
+
+        $data->save();
+
+        return redirect()->back()->with('message', 'Post Updated Successfully');
+
+    }
+
 }
